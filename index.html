@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Task Manager</title>
+  <meta name="description" content="Lightweight web task manager — add, edit, complete, delete tasks with progress visualization." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Task Manager</h1>
+    <p class="subtitle">Simple, lightweight, and responsive — saves tasks on your device</p>
+  </header>
+
+  <main class="container">
+    <section class="task-input">
+      <form id="task-form" aria-label="Add task form">
+        <input id="task-title" type="text" placeholder="Task title" required maxlength="100" />
+        <textarea id="task-desc" placeholder="Description (optional)" rows="2" maxlength="400"></textarea>
+        <div class="form-row">
+          <button type="submit" class="btn primary">Add Task</button>
+          <button type="button" id="clear-all" class="btn danger">Clear All</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="progress-section" aria-hidden="false">
+      <div class="progress-info">
+        <span id="progress-text">0 of 0 completed</span>
+        <span id="progress-percent">0%</span>
+      </div>
+      <div class="progress-bar" aria-hidden="false">
+        <div id="progress-fill" class="progress-fill" style="width:0%"></div>
+      </div>
+    </section>
+
+    <section class="tasks-section">
+      <ul id="tasks-list" class="tasks-list" aria-live="polite">
+        <!-- tasks inserted here -->
+      </ul>
+      <p id="no-tasks" class="no-tasks">No tasks — add your first task above.</p>
+    </section>
+  </main>
+
+  <!-- Edit Modal -->
+  <dialog id="edit-dialog" class="edit-dialog" aria-modal="true">
+    <form method="dialog" id="edit-form">
+      <h3>Edit Task</h3>
+      <input id="edit-title" type="text" required maxlength="100" />
+      <textarea id="edit-desc" rows="3" maxlength="400"></textarea>
+      <menu class="dialog-actions">
+        <button id="save-edit" class="btn primary" type="submit">Save</button>
+        <button id="cancel-edit" class="btn" type="button">Cancel</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <footer class="app-footer">
+    <small>Built for Capstone — S. Venkata Vara Prasad</small>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
